@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905200006) do
+ActiveRecord::Schema.define(version: 20150905263434) do
+
+  create_table "invoices", force: :cascade do |t|
+    t.integer  "person_id"
+    t.decimal  "total",      precision: 8, scale: 2
+    t.integer  "points"
+    t.datetime "ordered_at"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "invoices_people", id: false, force: :cascade do |t|
+    t.integer "person_id",  null: false
+    t.integer "invoice_id", null: false
+  end
+
+  add_index "invoices_people", ["invoice_id", "person_id"], name: "index_invoices_people_on_invoice_id_and_person_id"
+  add_index "invoices_people", ["person_id", "invoice_id"], name: "index_invoices_people_on_person_id_and_invoice_id"
+
+  create_table "people", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.datetime "birthday"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "people", ["user_id"], name: "index_people_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
