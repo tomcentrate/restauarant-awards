@@ -2,6 +2,8 @@ ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 
 require 'bundler/setup' # Set up gems listed in the Gemfile.
 require 'rails/commands/server'
+
+#Setup for VirtualBox Configuration
 module Rails
   class Server
     alias :default_options_alias :default_options
