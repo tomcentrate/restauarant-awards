@@ -39,7 +39,14 @@ gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, :git => "git://github.com/rspec/#{lib}.git", :branch => 'master'
+  end
+
   gem 'byebug'
+
+  # Manage some secrets
+  gem 'dotenv-rails'
 end
 
 group :development do
