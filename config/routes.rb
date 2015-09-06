@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     get 'sign_up', to: 'devise/registrations#new'
     get 'forgot_password', to: 'users/passwords#new'
   end
+
+  resources :invoices do
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
