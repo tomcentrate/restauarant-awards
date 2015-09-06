@@ -53,3 +53,27 @@ For Running a server
 ```
 sudo apt-get install nodejs
 ```
+
+# Setup postgres
+
+### Install Postgrs
+```
+sudo apt-get install postgresql postgresql-contrib
+# Install gem locally
+gem install pg
+
+# Login as postgres user
+sudo -i -u postgres
+createuser vagrant
+psql
+  ALTER ROLE vagrant CREATEDB;
+  CREATE DATABASE vagrant;
+  \q
+```
+### Log back into as vagrant user
+
+```
+CREATE DATABASE restaurant_award_test;
+CREATE DATABASE restaurant_award_development;
+
+```
