@@ -1,7 +1,7 @@
 class Invoice < ActiveRecord::Base
   belongs_to :person
   after_validation :calculate_points
-  validate_presence_of :person
+  validates_presence_of :person
 
   DOLLAR_POINTS_CONVERSION = 10
 
