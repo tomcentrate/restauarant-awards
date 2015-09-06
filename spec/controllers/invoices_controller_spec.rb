@@ -24,7 +24,8 @@ RSpec.describe InvoicesController, type: :controller do
   # Invoice. As you add validations to Invoice, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    {total: 10.00, ordered_at: DateTime.now, person_id: 1}
+    person = Person.find_or_create_by(first_name: "Tommy", last_name: "Lee")
+    {total: 10.00, ordered_at: DateTime.now, person_id: person.id}
   }
 
   let(:invalid_attributes) {
@@ -35,12 +36,6 @@ RSpec.describe InvoicesController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # InvoicesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
-  before(:all) do
-    @person = Person.create!(first_name: "Tommy", last_name: "Lee")
-  end
-  after(:all) do
-    @person.destroy!
-  end
   describe "GET #index" do
     it "assigns all invoices as @invoices" do
       invoice = Invoice.create! valid_attributes
