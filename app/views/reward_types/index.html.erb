@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reward Types</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reward_types.each do |reward_type| %>
+      <tr>
+        <td><%= reward_type.name %></td>
+        <td><%= reward_type.description %></td>
+        <td><%= link_to 'Show', reward_type %></td>
+        <td><%= link_to 'Edit', edit_reward_type_path(reward_type) %></td>
+        <td><%= link_to 'Destroy', reward_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reward type', new_reward_type_path %>

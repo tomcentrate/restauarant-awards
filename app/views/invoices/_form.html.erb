@@ -14,7 +14,7 @@
   <%= f.text_field :person_id %>
 
   <%= f.label :total, "Check Total" %>
-  <%= f.number_field :total %>
+  <%= f.number_field :total, :step => 'any' %>
   <%= f.hidden_field :ordered_at , value: DateTime.now %>
   <div class="actions">
     <%= f.submit %>
