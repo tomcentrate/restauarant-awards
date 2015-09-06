@@ -1,6 +1,10 @@
 class Invoice < ActiveRecord::Base
   belongs_to :person
+  after_validation :calculate_points
+  validates_presence_of :person
+
   DOLLAR_POINTS_CONVERSION = 10
+
   def calculate_points
     if self.total.nil?
       self.total = 0

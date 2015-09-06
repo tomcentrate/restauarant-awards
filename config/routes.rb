@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  devise_scope :user do
+    get 'sign_in', to: 'users/sessions#new'
+    get 'sign_out', to: 'users/sessions#destroy'
+    get 'sign_up', to: 'devise/registrations#new'
+    get 'forgot_password', to: 'users/passwords#new'
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
