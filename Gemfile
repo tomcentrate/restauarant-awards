@@ -44,6 +44,9 @@ group :development, :test do
   end
 
   gem 'byebug'
+
+  # Manage some secrets
+  gem 'dotenv-rails'
 end
 
 group :development do
