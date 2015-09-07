@@ -32,7 +32,7 @@
 # Feel free to add new variables to customise your setup.
 
 set :branch, "master"
-set :deploy_to, '/srv/awards-system'
+set :deploy_to, '/home/rails/awards'
 set :user, "rails"
 
 set :use_sudo, false
