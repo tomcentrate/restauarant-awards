@@ -41,7 +41,7 @@ set :deploy_via, :copy
 set :keep_releases, 5
 
 
-server "awards-restaurant.tommylee.co",
+server "104.236.125.173",
   user: "deployer",
   roles: %w{app, web, db},
   :primary => true,
