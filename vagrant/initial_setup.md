@@ -56,7 +56,7 @@ sudo apt-get install nodejs
 
 # Setup postgres
 
-### Install Postgrs
+### Install Postgres
 ```
 sudo apt-get install postgresql postgresql-contrib
 # Install gem locally

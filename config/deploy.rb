@@ -44,6 +44,9 @@ after 'deploy:publishing', 'deploy:restart'
 
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:restart'
+    on roles(:all) do |host|
+      #invoke 'unicorn:restart'
+      execute "service unicorn restart"
+    end
   end
 end
