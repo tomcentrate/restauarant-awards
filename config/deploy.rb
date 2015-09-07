@@ -14,7 +14,7 @@ set :deploy_to, '/srv/awards-systems'
 set :scm, :git
 
 # Default value for :format is :pretty
-# set :format, :pretty
+set :format, :pretty
 
 # Default value for :log_level is :debug
 # set :log_level, :debug
@@ -34,15 +34,15 @@ set :scm, :git
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+set :use_sudo, false
+set :bundle_binstubs, nil
+set :linked_files, fetch(:linked_files, []).push('config/database.yml')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+
+after 'deploy:publishing', 'deploy:restart'
+
 namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
+  task :restart do
+    invoke 'unicorn:reload'
   end
-
 end
