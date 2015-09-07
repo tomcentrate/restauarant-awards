@@ -33,7 +33,7 @@
 
 set :branch, "master"
 set :deploy_to, '/srv/awards-system'
-set :user, "deployers"
+set :user, "rails"
 
 set :use_sudo, false
 set :rails_env, "production"
@@ -42,7 +42,7 @@ set :keep_releases, 5
 
 
 server "104.236.125.173",
-  user: "deployer",
+  user: "rails",
   roles: %w{app, web, db},
   :primary => true,
   ssh_options: {

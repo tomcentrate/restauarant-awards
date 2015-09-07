@@ -1,3 +1,4 @@
+
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
@@ -8,7 +9,7 @@ set :repo_url, 'git@github.com:tomcentrate/restauarant-awards.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :branch, "master"
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/srv/awards-systems'
+set :deploy_to, '/home/rails/awards'
 
 # Default value for :scm is :git
 set :scm, :git
@@ -43,6 +44,6 @@ after 'deploy:publishing', 'deploy:restart'
 
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:reload'
+    invoke 'unicorn:restart'
   end
 end
