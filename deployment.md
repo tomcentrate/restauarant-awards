@@ -34,7 +34,6 @@ sudo apt-get install nodejs
 Follow instructions [here](https://www.digitalocean.com/community/tutorials/how-to-use-the-ruby-on-rails-one-click-application-on-digitalocean#ruby-version-manager)
 To replace all instances in `/etc/default/unicorn`
 
-
 ## Capistrano path
 
 I like setting it up on a per-user basis, setting up Capistrano to deploy to `/home/rails/awards`.
@@ -45,3 +44,10 @@ Set the unicorn pids and sockets in `/etc/default/unicorn`, `/etc/unicorn.conf`,
 - `/var/run/unicorn.sock` -> `/home/rails/awards/shared/tmp/sockets/unicorn.sock`
 - `/home/rails/rails_project` -> `/home/rails/awards/current`
 - `/home/rails/rails_project/public` -> `/home/rails/awards/current/public`
+
+## Change init.d to restart as rails App
+
+The user needs to be `rails` on first startup. This prevents weird deployment issues for continuous integration stuff.
+in `/etc/init.d/unicorn`
+
+Add `--chuid rails` to start-stop-daemons
