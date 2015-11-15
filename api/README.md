@@ -1,7 +1,7 @@
 # Restaurant Awards System
 
 ## Project Details
-Restaurant Award System for Small Businesses. We're recreating a system that allows a restaurant owner to keep track of their customers. 
+Restaurant Award System for Small Businesses. We're recreating a system that allows a restaurant owner to keep track of their customers.
 
 ### Basic Features
 - Record Customer Sales by Receipt Number.
@@ -11,7 +11,10 @@ Restaurant Award System for Small Businesses. We're recreating a system that all
 
 ## Initial Setup
 
-The environment setup requires Virtualbox and Vagrant, and uses librarian-chef to setup. Read the `initial_setup.md` in `vagrant/` to get your environment setup.
+### Pre-requisites
+- VirtualBox
+- Vagrant
+The environment setup requires VirtualBox and Vagrant, Read the `initial_setup.md` in `vagrant/` to get your environment setup.
 
 ```
 cd vagrant
@@ -31,4 +34,11 @@ vagrant reload
 vagrant ssh
 ```
 
+## Set up Rails for first use
+We'll need to initialize all the gems for first
+```
+rvm use 2.2.3@restaurant --create
+gem install bundler
+bundle install
 
+```
