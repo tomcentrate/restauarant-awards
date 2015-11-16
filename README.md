@@ -1,5 +1,7 @@
 # Restaurant Awards System
 
+[ ![Codeship Status for tomcentrate/restauarant-awards](https://codeship.com/projects/7fbdbdd0-3671-0133-4a2d-6ac620adb7df/status?branch=master)](https://codeship.com/projects/100903)
+
 ## Project Details
 Restaurant Award System for Small Businesses. We're recreating a system that allows a restaurant owner to keep track of their customers.
 
